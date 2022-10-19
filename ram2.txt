@@ -1,0 +1,59 @@
+; RSC Emulator
+; By Ahmad Mohammad
+
+
+
+JMP start
+; Variables
+var1: A9
+var2: 2B
+var3: AF
+var4: D1
+sol1: 00
+sol2: 00
+sol3: 00
+sol4: 00
+sol5: 00
+sol6: 00
+sol7: 00
+
+start:       ; the label 'start'. The jump statement earlier jumps here
+LDAC var1 ; Load the first variable into Accumulator
+MVAC      ; Move the contents of Accumulator to R
+LDAC var2 ; Load the second variable into Accumulator
+ADD       ; Add Accumulator and R, move result into Accumulator
+OUT       ; Send Accumulator contents to Output Register
+STAC sol1 ; store acc to sol1
+
+LDAC var2 ; Load var2 into Accumulator
+SUB       ; Subtract ACC and R
+OUT       ; Output
+STAC sol2 ; Store ACC to sol2
+
+LDAC var2 ; Load the first variable into Accumulator
+AND       ; AND ACC AND R
+OUT       ; Output
+STAC sol3 ; Store ACC to sol3
+
+LDAC var2 ; Load the first variable into Accumulator
+OR        ; OR ACC and R
+OUT       ; Output
+STAC sol4 ; Store ACC to sol4
+
+LDAC var2 ; Load the first variable into Accumulator
+ASHR      ; Shift var2 to right once
+OUT       ; output
+STAC sol5 ; Store ACC to sol5
+CLAC      ; Clear ACC to get ready for next operation
+
+LDAC var3 ; Load ACC with var3
+INC       ; ACC = ACC + 1 
+OUT       ; Output
+STAC sol6 ; Store ACC to sol6
+
+LDAC var4 ; Load ACC with var4
+NOT       ; Not op on ACC
+OUT       ; Output
+STAC sol7 ; Store ACC to sol7
+
+HALT      ; Stop execution

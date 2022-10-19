@@ -1,0 +1,28 @@
+PC_BUS == t0 + t2
+AR_LD == t0 !clock + t2 !clock + t4(d1 + d2) !clock
+PC_LD == !clock t4 (d5 + (d6 z)
+PC_INC == (!clock t1) + (d1 t3 !clock) + (d2 t3 !clock) + (!z (!clock d6 t3))
+DR_LD == (!clock (t1) + (d1 t3) + (d1 t5) + (d2 t3) + (d2 t5) + (d5 t3) + (!clock d6 t3) 
+DR_BUS == t2 + (d1 t4) + (d1 t6) + (d2 t4) + (d2 t6) + (d5 t4) + (d6 t4)
+
+R_LD == !clock (d3 t3)
+R_BUS == (d4 t3) + (d13 t3)
+S_LD == !clock (d0 t3)
+ACC_CLR == d11 t3
+ACC_LD == !clock ((d1 t6) + (d4 t3) + (d8 t3) + (d9 t3) + (d10 t3) + (d12 t3) + (d13 t3) + (d14 t3) + (d15 t3))
+ACC_BUS == (d2 t5) + (d3 t3) + (d7 t3)
+ALU_SEL == 
+	s0 == d1 + d4 + d9 + d13 + d15
+	s1 == d1 + d4 + d10 + d14 + d15
+	s2 == d12 + d13 + d14 + d15
+
+
+OUTR_LD == !clock t3 d7
+RAM_RW == t1 + t3 (d1 + d2 + d5 + z d6) + d1 t5
+RAM_EN == t1 + t3 (d1 + d2 + d5 + z d6) + d1 t5 + d2 t6
+IR_LD == (!clock t2)
+SC_CLR == t4 !(d1 + d2 + d5 + z d6) + t5 (d5 + z d6) + t7
+
+
+Z_LD = 1
+

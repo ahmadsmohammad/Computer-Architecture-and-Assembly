@@ -1,0 +1,52 @@
+
+  JMP start
+  
+  ; Variables
+
+  var1: 3
+  var2: 3
+  var3: 6
+  counter: 1
+  
+  answer: 0
+  answer2: 0
+
+  start:       		; the label 'start'. The jump statement earlier jumps here
+        
+	  	JMP loop1
+
+	end:
+		LDAC answer2
+		OUT	  
+
+        HALT      ; Stop execution
+
+	loop1:
+		LDAC var1	
+		MVAC		
+		LDAC answer	
+		ADD			
+		STAC answer
+		LDAC counter  	
+		MVAC			
+		LDAC var2   
+		SUB				
+		STAC var2   	
+		JMPZ loop2		
+		JMP loop1		
+
+	loop2:
+		LDAC answer
+		MVAC				
+		LDAC answer2		
+		ADD				
+		STAC answer2  		
+		LDAC counter		
+		MVAC				
+		LDAC var3		
+		SUB			
+		STAC var3			
+		JMPZ end			
+		JMP loop2
+		
+
